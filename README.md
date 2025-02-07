@@ -11,11 +11,11 @@
 
 ## Prerequisites
 - A Spotify account (and a Spotify Developer account: developer.spotify.com)
-- Node.js and npm installed (Installation Guide [Here](URL_du_lien))
+- Node.js and npm installed (Installation Guide [Here](https://nextjs.org/docs/app/getting-started/installation))
 
 ## 🚀 Getting Started
 ### 1. 🎵 Creating a Spotify Developer Application (15 min)
-- Go to the [Spotify Developer Dashboard](URL_du_lien).
+- Go to the [Spotify Developer Dashboard](https://developer.spotify.com/).
 - Sign in and click Create an App.
 - Fill in the required information (name, description and Redirect URIs with http://localhost:3000/callback (this is where Spotify will send the authorization code)) and create the application.
 - In the Settings tab, retrieve the Client ID and Client Secret.
