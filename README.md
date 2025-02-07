@@ -52,13 +52,13 @@ REDIRECT_URI=http://localhost:3000/callback
 - (In case you didn't notice, it's your home page).
 
 ### 4. 🔑 Retrieving Informations from Spotify - Back-end (30 min)
-- 💡 In api/ there are 4 folders to handle different side of the interactions with Spotify API.
+- 💡 In [api/](./api/) there are 4 folders to handle different side of the interactions with Spotify API.
   - login.js: This route generates the Spotify authentication URL and redirects the user to it. The user will need to log in and grant permission for the application to access certain data from their Spotify account.
   - callback.js: After the user authenticates, Spotify redirects to this route with a temporary authorization code. This route uses the code to retrieve an access token, which allows the application to access user data.
   - token.js: This route retrieves an access token using the client ID and client secret of the application. This token is then used to make authorized requests to the Spotify API.
-  - /spotify: This route allows the application to make requests to the Spotify API, using the retrieved access token to access data such as playlists, artists, albums, etc., based on the user's permissions.
+  - spotify.js: This route allows the application to make requests to the Spotify API, using the retrieved access token to access data such as playlists, artists, albums, etc., based on the user's permissions.
 
-- Copy the folder api/ into pages/ in your project and fill the gaps in api/ files.
+- Copy the folder api into pages/ in your project and fill the gaps in api/ files.
 - Tips to verify your results: Each files and folder in pages/ represent a page of your web application
 ```
 http://localhost:3000/api/callback -> http://localhost:3000/api/callback
@@ -66,7 +66,7 @@ http://localhost:3000/api/callback -> http://localhost:3000/api/callback
 
 ### 5. Displaying Information About an Artist - Front-end (20 min)
 - 💡 In Next.js, the front-end and back-end are integrated in a single project, enabling seamless data fetching via API routes. While traditional apps separate the front-end and back-end, Next.js offers a unified structure. This makes it easy to display dynamic content directly in React components. Now it could be great to display an actual web page with data fetched from the back-end. 
-- Copy index.js in your pages folder and fill the gaps.
+- Copy [index.js](./index.js) in your pages folder and fill the gaps.
 
 ### 5. ✨ Upgrade Displaying (∞)
 - Now that you're able to fetch back-end data in your front, let's make a proper search interface for our app. You can use components and other web tools to improve the UI.
