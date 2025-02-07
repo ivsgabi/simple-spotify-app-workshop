@@ -72,7 +72,7 @@ http://localhost:3000/api/callback -> http://localhost:3000/api/callback
 - Now that you're able to fetch back-end data in your front, let's make a proper search interface for our app. You can use components and other web tools to improve the UI.
 Suggestions: Search bar, music preview, navbar, buttons, artist details, colors...
 - 🔗  [ShadCN/UI (UI components)](https://ui.shadcn.com/), [Tailwind CSS (Utility-first styling)](https://tailwindcss.com/), [Radix UI (Accessible components)](https://www.radix-ui.com/), [React Icons (Icons for UI)](https://react-icons.github.io/react-icons/), [Ant Design (UI components)](https://ant.design/), [Spotify API Docs](https://developer.spotify.com/documentation/web-api),...
-- Really useful in front: See how to use Tailwind and CSS.
+- Really useful in Frond-End Development: See how to use Tailwind and CSS.
 ### 6. 🏁 To End
 - Now that you understand the basics:
   - You can a button to fetch popular playlists.
