@@ -3,7 +3,7 @@
 ## Objective
 Create a basic web application that displays information about an artist or a playlist using the Spotify API.
 
-## Compétences
+## Skills
 - Understanding and using a REST API
 - Handling authentication with OAuth 2.0
 - Manipulating JSON data
@@ -17,66 +17,66 @@ Create a basic web application that displays information about an artist or a pl
 ### 1. Creating a Spotify Developer Application (15 min)
 - Go to the Spotify Developer Dashboard.
 - Sign in and click Create an App.
-- Fill in the required information (name, description) and create the application.
+- Fill in the required information (name, description and Redirect URIs with http://localhost:3000/callback (this is where Spotify will send the authorization code)) and create the application.
 - In the Settings tab, retrieve the Client ID and Client Secret.
-- Add a Redirect URI (e.g., http://localhost:3000/callback) in Edit Settings.
 
 ### 2. Initializing the Project
-- Create a new folder for the project (e.g., spotify-app).
-- Initialize a Node.js project and install the necessary dependencies:
+- Initialize a Next.js project and install the necessary dependencies:
 ```
 npm init -y
 npm install express axios dotenv cors
+npx create-next-app@latest app-folder-name // example: spotify-app
+cd app-folder-name
+```
+- You should have something like that in your app folder:
+```
+➜  example-app git:(main) ✗ ls
+app  eslint.config.mjs  next.config.ts  next-env.d.ts  node_modules  package.json  package-lock.json  postcss.config.mjs  public  README.md  tailwind.config.ts  tsconfig.json
+```
+- PS: You may not need all these files but don't delete any without instructions.
+
+- You have just created your Next Web Application. Try this to if everything works.
+```
+npm run dev
 ```
 
 ### 3. Creating a Basic Server to Handle Authentication (15 min)
-- Create a .env file and add the following information::
+- Create a .env file and add the following information:
 ```
 CLIENT_ID=YOUR_CLIENT_ID
 CLIENT_SECRET=YOUR_CLIENT_SECRET
 REDIRECT_URI=http://localhost:3000/callback
 ```
-- Copy the server.js file into your project folder.
-- Start the server:
+- Rename app/ into pages/.
+- Delete pages/page.tsx.
+- Create a pages/index.js file.
+
+### 4. Retrieving informations from spotify - Back-end (30 min)
+- In api/ there are 4 folders to handle different side of .... the first one is done, complete the others ones.
+  - login.js: This route generates the Spotify authentication URL and redirects the user to it. The user will need to log in and grant permission for the application to access certain data from their Spotify account.
+  - callback.js: After the user authenticates, Spotify redirects to this route with a temporary authorization code. This route uses the code to retrieve an access token, which allows the application to access user data.
+  - token.js: This route retrieves an access token using the client ID and client secret of the application. This token is then used to make authorized requests to the Spotify API.
+  - /spotify: This route allows the application to make requests to the Spotify API, using the retrieved access token to access data such as playlists, artists, albums, etc., based on the user's permissions.
+
+- Copy the folder api/ into pages/ in your project and fill the gaps in api/ files.
+- Tips to verify your results: Each files and folder in pages/ represent a page of your web application
 ```
-node server.js
+http://localhost:3000/api/callback -> http://localhost:3000/api/callback
 ```
 
-Make sure everything is working. You should be able to find the page to check if the server.js file is configured correctly.
+### 5. Displaying Information About an Artist - Front-end (20 min)
+- In Next.js, the front-end and back-end are integrated in a single project, enabling seamless data fetching via API routes. While traditional apps separate the front-end and back-end, Next.js offers a unified structure. This makes it easy to display dynamic content directly in React components. Now it could be great to display an actual web page with data fetched from the back-end. 
+- Copy index.js in your pages folder and fill the gaps.
 
-### 4. Retrieving the Access Token (15 min)
-- Add this route in server.js:
-```
-app.get('/callback', async (req, res) => {
-    const code = req.query.code;
-
-    const tokenResponse = await axios.post('https://accounts.spotify.com/api/token', new URLSearchParams({
-        grant_type: 'authorization_code',
-        code,
-        redirect_uri: REDIRECT_URI,
-        client_id: CLIENT_ID,
-        client_secret: CLIENT_SECRET
-    }), {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    });
-
-    res.json(tokenResponse.data);
-});
-```
-- Restart the server and log in to see the access token.
-
-### 4. Displaying Information About an Artist (20 min)
-- Copy the index.html file and fill in the missing parts.
-- Modify the searchArtist function to include audio previews.
-- Test the application using an access token obtained via the callback.
-
-### 5.  Amélioration et présentation des résultats (20 min)
-- Make small modifications to display the found artists properly.
-  - Documentation: 
-
-### 6. Pour finir (10 min)
+### 5. Upgrade Displaying (20 min)
+- Now that you're able to fetch back-end data in your front, let's make a proper search interface for our app. You can use components and other web tools to improve the UI.
+Suggestions: Search bar, music preview, navbar, buttons, artist details, colors...
+- Links: ShadCN/UI (UI components), Tailwind CSS (Utility-first styling), Radix UI (Accessible components), React Icons (Icons for UI), Ant Design (UI components), Spotify API Docs,...
+- See how to use Tailwing and CSS.
+### 6. To End
 - Now that you understand the basics:
-  - Add a button to fetch popular playlists.
+  - You can a button to fetch popular playlists.
   - Improve the UI by making it more visually appealing with CSS.
   - Store the token more securely by integrating a backend solution.
+  - Add more features.
 
