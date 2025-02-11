@@ -80,3 +80,4 @@ Suggestions: Search bar, music preview, navbar, buttons, artist details, colors.
   - Store the token more securely by integrating a backend solution.
   - Add more features.
 
+➡️ You can see my result at this exercice on the branch named [outcome]().
