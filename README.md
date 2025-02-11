@@ -1,4 +1,4 @@
-# Creating a Simple Application Using the Spotify API
+# Creating a Simple Application Using the Spotify API - OUTCOME
 
 ## Objective
 ✔️ Create a basic web application that displays information about an artist or a playlist using the Spotify API.
